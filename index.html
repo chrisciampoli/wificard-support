@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WiFi Card — Support</title>
+  <meta name="description" content="Support, Privacy Policy, and Terms of Service for WiFi Card — beautiful QR code cards for instant WiFi sharing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root {
+      --color-bg: #faf9f7;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #5a5a5a;
+      --color-text-tertiary: #8a8a8a;
+      --color-border: #e8e5e0;
+      --color-accent: #e8734a;
+      --gradient-sunset: linear-gradient(135deg, #e8734a 0%, #d94f8c 100%);
+      --gradient-ocean: linear-gradient(135deg, #3a7bd5 0%, #2ac4b3 100%);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Source Sans 3', -apple-system, sans-serif;
+      --max-width: 720px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 3rem;
+      --space-xl: 5rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 249, 247, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    nav .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .brand {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-xl) 1.5rem var(--space-lg);
+      text-align: center;
+    }
+
+    .hero .app-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      background: var(--gradient-sunset);
+      margin: 0 auto var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(232, 115, 74, 0.25), 0 2px 8px rgba(0,0,0,0.06);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero .app-icon svg {
+      width: 44px;
+      height: 44px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero .tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    /* ---- DIVIDER ---- */
+    .divider {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .divider hr {
+      border: none;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    /* ---- SECTIONS ---- */
+    .content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: var(--space-lg) 0;
+    }
+
+    section h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: var(--space-md);
+      position: relative;
+      display: inline-block;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: var(--gradient-sunset);
+      border-radius: 1px;
+    }
+
+    section h3 {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-xs);
+      color: var(--color-text);
+    }
+
+    section p {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+
+    section ul {
+      color: var(--color-text-secondary);
+      padding-left: 1.2rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    section ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    section ul li::marker {
+      color: var(--color-accent);
+    }
+
+    /* ---- SUPPORT CARD ---- */
+    .support-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: var(--space-md) var(--space-md);
+      margin: var(--space-md) 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .support-card .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: opacity 0.2s;
+    }
+
+    .support-card .email-link:hover {
+      opacity: 0.75;
+    }
+
+    .support-card .email-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .support-card .response-note {
+      font-size: 0.88rem;
+      color: var(--color-text-tertiary);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-lg) 1.5rem var(--space-md);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-text-tertiary);
+    }
+
+    footer .copyright {
+      margin-bottom: 0.25rem;
+    }
+
+    footer a {
+      color: var(--color-text-tertiary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .hero {
+        padding: var(--space-lg) 1.25rem var(--space-md);
+      }
+
+      nav .nav-links {
+        gap: 1rem;
+      }
+
+      nav .nav-links a {
+        font-size: 0.82rem;
+      }
+
+      section h2 {
+        font-size: 1.35rem;
+      }
+    }
+
+    /* ---- PRINT ---- */
+    @media print {
+      nav { position: static; backdrop-filter: none; }
+      body::before { display: none; }
+      .hero .app-icon { animation: none; }
+    }
+
+    /* ---- ACCESSIBILITY ---- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero .app-icon { animation: none; }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="brand">WiFi Card</a>
+      <ul class="nav-links">
+        <li><a href="#support">Support</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#terms">Terms</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="app-icon" role="img" aria-label="WiFi Card app icon">
+      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 34a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="#fff"/>
+        <path d="M14.5 24.5a10.6 10.6 0 0 1 15 0" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M9 19a18.4 18.4 0 0 1 26 0" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="8" y="8" width="28" height="4" rx="2" fill="rgba(255,255,255,0.35)"/>
+      </svg>
+    </div>
+    <h1>WiFi Card</h1>
+    <p class="tagline">Beautiful QR code cards for instant WiFi sharing. Your guests scan and connect &mdash; no typing needed.</p>
+  </header>
+
+  <div class="divider"><hr></div>
+
+  <main class="content">
+
+    <!-- SUPPORT -->
+    <section id="support">
+      <h2>Support</h2>
+      <p>Need help with WiFi Card? We're here for you. If you're experiencing an issue or have a question, please reach out and we'll get back to you as soon as we can.</p>
+
+      <div class="support-card">
+        <a href="mailto:chrisciampoli@gmail.com" class="email-link">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0 0 16 4H4a2 2 0 0 0-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.118z"/></svg>
+          chrisciampoli@gmail.com
+        </a>
+        <p class="response-note">We typically respond within 24 hours.</p>
+      </div>
+
+      <h3>Troubleshooting Tips</h3>
+      <ul>
+        <li>Make sure you've entered the correct WiFi password — the QR code encodes exactly what you type.</li>
+        <li>When scanning, use the default iPhone or Android camera app. Third-party camera apps may not support WiFi QR codes.</li>
+        <li>If sharing or printing isn't working, check that you've granted WiFi Card the necessary permissions in Settings.</li>
+        <li>WiFi Card works entirely offline — no internet connection is needed.</li>
+      </ul>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- PRIVACY POLICY -->
+    <section id="privacy">
+      <h2>Privacy Policy</h2>
+      <p><strong>Effective date:</strong> February 22, 2026</p>
+
+      <p>WiFi Card is designed with your privacy as a core principle. We believe the best privacy policy is the simplest one: <strong>we collect nothing</strong>.</p>
+
+      <h3>Data Collection</h3>
+      <p>WiFi Card does not collect, transmit, or store any personal data. Specifically:</p>
+      <ul>
+        <li>No personal information is collected</li>
+        <li>No usage data or analytics are gathered</li>
+        <li>No cookies or tracking technologies are used</li>
+        <li>No data is sent to any server — the app works 100% offline</li>
+        <li>No third-party SDKs or services are included</li>
+      </ul>
+
+      <h3>Local Storage</h3>
+      <p>WiFi network names and passwords you enter are stored only on your device using local storage. This data never leaves your device and is not accessible to us or any third party.</p>
+
+      <h3>Photos &amp; Sharing</h3>
+      <p>When you save a card to your photo library or share it, that action uses your device's built-in capabilities. We have no access to your photos, contacts, or shared content.</p>
+
+      <h3>Children's Privacy</h3>
+      <p>WiFi Card does not collect data from anyone, including children under 13.</p>
+
+      <h3>Changes to This Policy</h3>
+      <p>If we ever update this policy, we'll post the revised version on this page with a new effective date. Since we don't collect your email or any contact info, this page is the sole channel for policy updates.</p>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- TERMS OF SERVICE -->
+    <section id="terms">
+      <h2>Terms of Service</h2>
+      <p><strong>Effective date:</strong> February 22, 2026</p>
+
+      <h3>Acceptance</h3>
+      <p>By downloading or using WiFi Card, you agree to these terms. If you do not agree, please do not use the app.</p>
+
+      <h3>License</h3>
+      <p>WiFi Card grants you a personal, non-transferable, non-exclusive license to use the app on any Apple device you own or control, subject to the Apple Media Services Terms and Conditions.</p>
+
+      <h3>Your Responsibilities</h3>
+      <ul>
+        <li>You are responsible for the accuracy of the WiFi credentials you enter.</li>
+        <li>You should only share WiFi credentials for networks you are authorized to share.</li>
+        <li>You are responsible for the physical and digital distribution of any cards you create.</li>
+      </ul>
+
+      <h3>Disclaimer</h3>
+      <p>WiFi Card is provided "as is" without warranties of any kind. We do not guarantee that QR codes will work with every device or camera app, though we follow the standard WiFi QR code format supported by iOS and Android.</p>
+
+      <h3>Limitation of Liability</h3>
+      <p>To the maximum extent permitted by law, the developer shall not be liable for any indirect, incidental, or consequential damages arising from the use of WiFi Card.</p>
+
+      <h3>Changes to These Terms</h3>
+      <p>We may update these terms from time to time. Continued use of the app after changes constitutes acceptance of the revised terms.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="copyright">&copy; 2026 Christopher Ciampoli. All rights reserved.</p>
+    <p>
+      <a href="mailto:chrisciampoli@gmail.com">Contact</a>
+    </p>
+  </footer>
+
+</body>
+</html>
